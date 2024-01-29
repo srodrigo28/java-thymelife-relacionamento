@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Produto</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-5">
+            <form th:action="@{/bustar}" method="post">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="nome" />
+                    <input type="submit" class="btn btn-primary" value="Buscar" />
+                    <a th:href="@{/}" class="btn btn-danger">Limpar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
