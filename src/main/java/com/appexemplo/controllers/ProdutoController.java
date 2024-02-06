@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,7 +24,7 @@ import jakarta.validation.constraints.NotNull;
 @RestController
 public class ProdutoController {
     
-        @Autowired
+    @Autowired
     ProdutoRepository produtoRepository;
 
     @PostMapping("/produto")
@@ -33,6 +32,11 @@ public class ProdutoController {
         var produto = new Produto();
         BeanUtils.copyProperties(produtoDTO, produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(produto));
+    }
+
+    @GetMapping("/")
+    public String produto(){
+        return "produto";
     }
 
     @GetMapping("/produto")
@@ -71,13 +75,8 @@ public class ProdutoController {
     }
 
     /**
-     * 
+     *  CONTINUA
      * 
      */
-
-     public String buscarProduto(@Param("nome") String nome){
-        
-        return "";
-     }
      
 }
