@@ -19,4 +19,6 @@ public class Produto {
     private String nome;
 
     private Float preco;
+
+    private Integer quantidade;
 }

@@ -27,19 +27,19 @@ public class ProdutoController {
     @Autowired
     ProdutoRepository produtoRepository;
 
-    @PostMapping("/produto")
+    @PostMapping("/produto") // Cadastra um produto
     public ResponseEntity<Produto> salveProduto(@RequestBody @Valid ProdutoDTO produtoDTO){
         var produto = new Produto();
         BeanUtils.copyProperties(produtoDTO, produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(produto));
     }
 
-    @GetMapping("/produto")
+    @GetMapping("/produto") // Lista todos os produtos
     public ResponseEntity<java.util.List<Produto>> listaTodosProdutos(){
         return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.findAll());
     }
 
-    @GetMapping("/produto/{id}")
+    @GetMapping("/produto/{id}") // Lista um produto por ID
     public ResponseEntity<Object> listarUmProduto(@PathVariable @NotNull Long id){
         Optional<Produto> produto = produtoRepository.findById(id);
         if(produto.isEmpty()){
@@ -48,7 +48,7 @@ public class ProdutoController {
         return ResponseEntity.status(HttpStatus.OK).body(produto.get());
     }
 
-    @PutMapping("/produto/{id}")
+    @PutMapping("/produto/{id}") // Atualiza um produto por ID ------------VERIFICAR
     public ResponseEntity<Object> atualizarProduto(@PathVariable Long id, @RequestBody @Valid ProdutoDTO produtoDTO){
         Optional<Produto> produto = produtoRepository.findById(id);
         if(produto.isEmpty()){
@@ -59,7 +59,7 @@ public class ProdutoController {
             return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.save(produtoModel));
     }
 
-    @DeleteMapping("/produto/{id}")
+    @DeleteMapping("/produto/{id}") // Apaga um produto por ID
     public ResponseEntity<Object> apagarProduto(@PathVariable Long id){
         Optional<Produto> produto = produtoRepository.findById(id);
         if(produto.isEmpty()){
