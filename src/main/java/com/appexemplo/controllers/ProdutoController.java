@@ -54,7 +54,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/produto/{id}")
-    public ResponseEntity<Object> atualizarProduto(@PathVariable(value="id") Long id, @RequestBody @Valid ProdutoDTO produtoDTO){
+    public ResponseEntity<Object> atualizarProduto(@PathVariable Long id, @RequestBody @Valid ProdutoDTO produtoDTO){
         Optional<Produto> produto = produtoRepository.findById(id);
         if(produto.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found.");
@@ -65,7 +65,7 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/produto/{id}")
-    public ResponseEntity<Object> apagarProduto(@PathVariable(value="id") Long id){
+    public ResponseEntity<Object> apagarProduto(@PathVariable Long id){
         Optional<Produto> produto = produtoRepository.findById(id);
         if(produto.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto not found.");
