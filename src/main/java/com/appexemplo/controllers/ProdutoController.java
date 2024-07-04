@@ -34,11 +34,6 @@ public class ProdutoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(produto));
     }
 
-    @GetMapping("/")
-    public String produto(){
-        return "produto";
-    }
-
     @GetMapping("/produto")
     public ResponseEntity<java.util.List<Produto>> listaTodosProdutos(){
         return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.findAll());
@@ -76,7 +71,6 @@ public class ProdutoController {
 
     /**
      *  CONTINUA
-     * 
      */
      
 }
