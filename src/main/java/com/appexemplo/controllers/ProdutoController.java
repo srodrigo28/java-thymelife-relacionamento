@@ -48,7 +48,7 @@ public class ProdutoController {
         return ResponseEntity.status(HttpStatus.OK).body(produto.get());
     }
 
-    @PutMapping("/produto/{id}") // Atualiza um produto por ID ------------VERIFICAR
+    @PutMapping("/produto/{id}") // Atualiza um produto por ID 
     public ResponseEntity<Object> atualizarProduto(@PathVariable Long id, @RequestBody @Valid ProdutoDTO produtoDTO){
         Optional<Produto> produto = produtoRepository.findById(id);
         if(produto.isEmpty()){
