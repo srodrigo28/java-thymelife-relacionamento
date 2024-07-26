@@ -2,11 +2,15 @@
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
+        <script th:src="@{script.js}"></script>
+        <link   th:href="@{style.css}" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <title>Home</title>
     </head>
     <body class="container w-auto">
+
+        <div th:replace="~{fragments}/__navbar :: navbar"></div>
 
         <style>
              @media (min-width: 400px) { body {  /* Small devices (Mobile Cell & tablets, 768px and up) */
